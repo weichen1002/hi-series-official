@@ -1,0 +1,47 @@
+---
+const entries = [
+  {
+    href: "/use-cases",
+    label: "Use cases",
+    title: "看不同角色怎么使用 Hi Series",
+    body: "开发者、创作者和独立产品团队可以从不同入口理解产品价值。"
+  },
+  {
+    href: "/pricing",
+    label: "Pricing",
+    title: "查看产品价格和开通方式",
+    body: "统一了解 HI API 与 Hi AI Image Studio 的当前使用方式。"
+  },
+  {
+    href: "/philosophy",
+    label: "Philosophy",
+    title: "理解产品原则和后续路线",
+    body: "Hi Series 会围绕清晰入口、低摩擦使用和持续演进扩展。"
+  },
+  {
+    href: "/about",
+    label: "About",
+    title: "了解作者和产品动机",
+    body: "为什么做 Hi 系列，以及后续会如何把它做成完整产品矩阵。"
+  }
+] as const;
+---
+
+<section class="section explore" aria-labelledby="explore-title">
+  <div class="section-heading reveal">
+    <span class="section-label">Explore</span>
+    <h2 id="explore-title">继续深入了解。</h2>
+    <p>首页只保留总览。更完整的场景、价格、理念和作者信息，放到独立页面里。</p>
+  </div>
+  <div class="explore-grid">
+    {
+      entries.map((entry) => (
+        <a class="explore-card reveal" href={entry.href}>
+          <span>{entry.label}</span>
+          <h3>{entry.title}</h3>
+          <p>{entry.body}</p>
+        </a>
+      ))
+    }
+  </div>
+</section>

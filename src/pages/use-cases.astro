@@ -1,0 +1,26 @@
+---
+import PageHero from "@components/PageHero.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import SiteInteractions from "@components/SiteInteractions.astro";
+import UseCasesSection from "@components/UseCasesSection.astro";
+import TrustSection from "@components/TrustSection.astro";
+import FinalCta from "@components/FinalCta.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="使用场景 - Hi Series" description="了解开发者、创作者和独立产品团队如何使用 Hi Series。">
+  <SiteHeader />
+  <main id="main">
+    <PageHero
+      eyebrow="Use cases"
+      title="从角色和任务理解 Hi Series。"
+      description="不同用户关心的问题不一样。场景页把产品价值拆到具体工作流里，帮助用户判断自己应该从哪个产品开始。"
+    />
+    <UseCasesSection />
+    <TrustSection />
+    <FinalCta href="/#products" label="查看产品" />
+  </main>
+  <SiteFooter />
+  <SiteInteractions />
+</BaseLayout>

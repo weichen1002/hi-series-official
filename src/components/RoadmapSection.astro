@@ -1,0 +1,21 @@
+---
+import { roadmap } from "@data/site";
+---
+
+<section class="section roadmap" id="roadmap">
+  <div class="section-heading reveal">
+    <span class="section-label">Roadmap</span>
+    <h2>接下来可以扩展的模块</h2>
+  </div>
+  <div class="roadmap-grid">
+    {
+      roadmap.map((item) => (
+        <div class="roadmap-item reveal">
+          <span>{item.phase}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

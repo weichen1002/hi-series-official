@@ -1,0 +1,47 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
+const navItems = [
+  {
+    href: "/#products",
+    label: "产品",
+    active: currentPath === "/" || currentPath.startsWith("/products")
+  },
+  {
+    href: "/use-cases",
+    label: "场景",
+    active: currentPath === "/use-cases"
+  },
+  {
+    href: "/pricing",
+    label: "价格",
+    active: currentPath === "/pricing"
+  },
+  {
+    href: "/philosophy",
+    label: "理念",
+    active: currentPath === "/philosophy"
+  },
+  {
+    href: "/about",
+    label: "作者",
+    active: currentPath === "/about"
+  }
+];
+---
+
+<header class="site-header">
+  <a class="brand" href="/#main" aria-label="Hi Series 首页">
+    <span class="brand-mark">hi</span>
+    <span>Hi Series</span>
+  </a>
+  <nav class="site-nav" aria-label="主导航">
+    {
+      navItems.map((item) => (
+        <a class:list={{ active: item.active }} href={item.href} aria-current={item.active ? "page" : undefined}>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+  <a class="header-action magnetic" href="/#products">查看产品</a>
+</header>

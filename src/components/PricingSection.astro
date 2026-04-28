@@ -1,0 +1,31 @@
+---
+import { products } from "@data/site";
+---
+
+<section class="section pricing" id="pricing">
+  <div class="section-heading reveal">
+    <span class="section-label">Pricing</span>
+    <h2>先支持轻量使用，再面向团队扩展。</h2>
+    <p>当前以按量使用和联系开通为主，后续可以替换成真实套餐、额度和支付入口。</p>
+  </div>
+  <div class="pricing-grid">
+    {
+      products.flatMap((product) =>
+        product.pricing.map((plan) => (
+          <article class={`pricing-card ${product.tone} reveal`}>
+            <span>{product.name}</span>
+            <h3>{plan.name}</h3>
+            <strong>{plan.price}</strong>
+            <p>{plan.body}</p>
+            <ul>
+              {plan.includes.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <a class="magnetic" href={product.productUrl} target="_blank" rel="noreferrer">进入 {product.name}</a>
+          </article>
+        ))
+      )
+    }
+  </div>
+</section>

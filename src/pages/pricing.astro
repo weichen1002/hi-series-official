@@ -1,0 +1,24 @@
+---
+import FinalCta from "@components/FinalCta.astro";
+import PageHero from "@components/PageHero.astro";
+import PricingSection from "@components/PricingSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import SiteInteractions from "@components/SiteInteractions.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="价格 - Hi Series" description="查看 HI API 与 Hi AI Image Studio 的价格和开通方式。">
+  <SiteHeader />
+  <main id="main">
+    <PageHero
+      eyebrow="Pricing"
+      title="先轻量使用，再按产品阶段扩展。"
+      description="当前价格页用于统一承接产品开通方式。后续真实套餐、额度、发票和团队计划可以继续在这里扩展。"
+    />
+    <PricingSection />
+    <FinalCta href="/#products" label="返回产品总览" />
+  </main>
+  <SiteFooter />
+  <SiteInteractions />
+</BaseLayout>

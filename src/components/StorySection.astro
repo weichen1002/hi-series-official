@@ -1,0 +1,30 @@
+---
+import { principles } from "@data/site";
+---
+
+<section class="section story" id="story">
+  <div class="story-copy reveal">
+    <span class="section-label">Principles</span>
+    <h2>Hi Series 的产品原则</h2>
+    <p>
+      AI 工具不应该把用户推向复杂配置。好的工具应该让能力变得可感知、可控制，
+      并在关键路径上保持克制。
+    </p>
+  </div>
+  <div class="principle-list">
+    {
+      principles.map((principle, index) => (
+        <div class="principle reveal">
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{principle.title}</h3>
+          <p>{principle.body}</p>
+          <ul>
+            {principle.details.map((detail) => (
+              <li>{detail}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

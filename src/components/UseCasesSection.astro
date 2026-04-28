@@ -1,0 +1,28 @@
+---
+import { useCases } from "@data/site";
+---
+
+<section class="section use-cases" id="use-cases">
+  <div class="section-heading reveal">
+    <span class="section-label">Use cases</span>
+    <h2>从真实场景进入产品。</h2>
+    <p>官网不只介绍“有什么”，还要让不同用户快速判断“这是不是适合我”。</p>
+  </div>
+  <div class="use-case-grid">
+    {
+      useCases.map((item, index) => (
+        <article class="use-case reveal">
+          <span>{String(index + 1).padStart(2, "0")} / {item.audience}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+          <ol>
+            {item.steps.map((step) => (
+              <li>{step}</li>
+            ))}
+          </ol>
+          <a href={item.href}>查看 {item.product}</a>
+        </article>
+      ))
+    }
+  </div>
+</section>

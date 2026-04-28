@@ -1,0 +1,27 @@
+---
+import FinalCta from "@components/FinalCta.astro";
+import Hero from "@components/Hero.astro";
+import HomeExploreSection from "@components/HomeExploreSection.astro";
+import IntroStrip from "@components/IntroStrip.astro";
+import ProductSection from "@components/ProductSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SiteInteractions from "@components/SiteInteractions.astro";
+---
+
+<BaseLayout
+  title="Hi Series - AI tools made for builders"
+  description="Hi Series 是一组面向 AI 创作者和开发者的产品集合，包括 HI API 与 Hi AI Image Studio。"
+>
+  <SiteHeader />
+  <main id="main">
+    <Hero />
+    <IntroStrip />
+    <ProductSection />
+    <HomeExploreSection />
+    <FinalCta href="/use-cases" label="查看使用场景" />
+  </main>
+  <SiteFooter />
+  <SiteInteractions />
+</BaseLayout>

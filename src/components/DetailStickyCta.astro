@@ -1,0 +1,19 @@
+---
+interface Props {
+  productName: string;
+  productUrl: string;
+}
+
+const { productName, productUrl } = Astro.props;
+---
+
+<aside class="detail-sticky-cta" aria-label={`${productName} 快速操作`}>
+  <div>
+    <span>Now viewing</span>
+    <strong>{productName}</strong>
+  </div>
+  <nav aria-label="产品操作">
+    <a href="#pricing">查看价格</a>
+    <a href={productUrl} target="_blank" rel="noreferrer">进入产品</a>
+  </nav>
+</aside>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hi-series.example.com/sitemap.xml

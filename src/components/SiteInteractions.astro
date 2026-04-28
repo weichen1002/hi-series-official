@@ -1,0 +1,83 @@
+<script>
+  const root = document.documentElement;
+  const progress = document.querySelector(".scroll-progress");
+  const revealItems = document.querySelectorAll(".reveal");
+  const tiltCards = document.querySelectorAll<HTMLElement>(".tilt-card");
+  const magneticItems = document.querySelectorAll<HTMLElement>(".magnetic");
+  const stage = document.querySelector<HTMLElement>(".interactive-stage");
+  const cursorLight = document.querySelector<HTMLElement>(".cursor-light");
+  const stickyCta = document.querySelector<HTMLElement>(".detail-sticky-cta");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.16 }
+  );
+
+  revealItems.forEach((item, index) => {
+    item.setAttribute("style", `transition-delay: ${Math.min(index * 60, 300)}ms`);
+    observer.observe(item);
+  });
+
+  window.setTimeout(() => {
+    revealItems.forEach((item) => item.classList.add("visible"));
+  }, 900);
+
+  const updateProgress = () => {
+    const scrollable = root.scrollHeight - window.innerHeight;
+    const value = scrollable > 0 ? window.scrollY / scrollable : 0;
+    progress?.setAttribute("style", `transform: scaleX(${Math.min(value, 1)})`);
+    stickyCta?.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.42);
+  };
+
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
+
+  tiltCards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateX = (y / rect.height - 0.5) * -7;
+      const rotateY = (x / rect.width - 0.5) * 7;
+
+      card.style.setProperty("--mx", `${x}px`);
+      card.style.setProperty("--my", `${y}px`);
+      card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener("pointerleave", () => {
+      card.style.transform = "";
+    });
+  });
+
+  magneticItems.forEach((item) => {
+    item.addEventListener("pointermove", (event) => {
+      const rect = item.getBoundingClientRect();
+      const x = (event.clientX - rect.left - rect.width / 2) * 0.18;
+      const y = (event.clientY - rect.top - rect.height / 2) * 0.18;
+      item.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    item.addEventListener("pointerleave", () => {
+      item.style.transform = "";
+    });
+  });
+
+  stage?.addEventListener("pointermove", (event) => {
+    const rect = stage.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    cursorLight?.setAttribute("style", `left: ${x}px; top: ${y}px; opacity: 1`);
+  });
+
+  stage?.addEventListener("pointerleave", () => {
+    cursorLight?.setAttribute("style", "opacity: 0");
+  });
+</script>

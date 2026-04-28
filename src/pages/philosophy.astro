@@ -1,0 +1,28 @@
+---
+import FinalCta from "@components/FinalCta.astro";
+import PageHero from "@components/PageHero.astro";
+import RoadmapSection from "@components/RoadmapSection.astro";
+import SiteFooter from "@components/SiteFooter.astro";
+import SiteHeader from "@components/SiteHeader.astro";
+import SiteInteractions from "@components/SiteInteractions.astro";
+import StorySection from "@components/StorySection.astro";
+import TrustSection from "@components/TrustSection.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="产品理念 - Hi Series" description="了解 Hi Series 的产品原则、可信基础和后续路线图。">
+  <SiteHeader />
+  <main id="main">
+    <PageHero
+      eyebrow="Philosophy"
+      title="不做复杂平台，先把高频任务做顺。"
+      description="理念页承载产品原则、可信基础和路线图。它解释 Hi Series 为什么这样设计，也给后续模块留下清晰位置。"
+    />
+    <StorySection />
+    <TrustSection />
+    <RoadmapSection />
+    <FinalCta href="/#products" label="查看产品" />
+  </main>
+  <SiteFooter />
+  <SiteInteractions />
+</BaseLayout>

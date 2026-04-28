@@ -1,0 +1,22 @@
+---
+import { trustItems } from "@data/site";
+---
+
+<section class="section trust" id="trust">
+  <div class="section-heading reveal">
+    <span class="section-label">Trust</span>
+    <h2>先把可信的产品骨架搭稳。</h2>
+    <p>Hi Series 的官网结构会服务长期增长：更好的加载、更清晰的内容维护、更自然的产品扩展。</p>
+  </div>
+  <div class="trust-grid">
+    {
+      trustItems.map((item) => (
+        <article class="trust-item reveal">
+          <span>{item.metric}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

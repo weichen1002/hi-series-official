@@ -1,0 +1,16 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const { href = "/#products", label = "查看当前产品" } = Astro.props;
+---
+
+<section class="section final-cta">
+  <div class="reveal">
+    <span class="section-label">Start here</span>
+    <h2>从一个产品入口，进入完整 Hi 系列。</h2>
+  </div>
+  <a class="button primary magnetic" href={href}>{label}</a>
+</section>

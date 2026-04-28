@@ -1,0 +1,43 @@
+---
+import { products } from "@data/site";
+---
+
+<section class="section products" id="products">
+  <div class="section-heading reveal">
+    <span class="section-label">Products</span>
+    <h2>当前产品</h2>
+    <p>每个产品都保持独立价值，也共享 Hi Series 的简洁、稳定和高可用体验。</p>
+  </div>
+
+  <div class="product-grid">
+    {
+      products.map((product) => (
+        <a class={`product-card tilt-card ${product.tone} reveal`} href={product.href} aria-label={`查看 ${product.name}`}>
+          <div class="card-topline">
+            <span>{product.label}</span>
+            <span>{product.status}</span>
+          </div>
+          <span class="product-tagline">{product.tagline}</span>
+          <h3>{product.name}</h3>
+          <p>{product.description}</p>
+          <div class="product-metrics" aria-label={`${product.name} 指标`}>
+            {
+              product.metrics.map((metric) => (
+                <span>
+                  <strong>{metric.value}</strong>
+                  {metric.label}
+                </span>
+              ))
+            }
+          </div>
+          <ul>
+            {product.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+          <span class="card-action">{product.cta}</span>
+        </a>
+      ))
+    }
+  </div>
+</section>
