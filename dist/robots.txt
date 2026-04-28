@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://hi-series.example.com/sitemap.xml
+Sitemap: https://home.hiapis.cloud/sitemap.xml

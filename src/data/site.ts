@@ -220,16 +220,8 @@ export const useCases = [
 
 export const authorLinks = [
   {
-    label: "GitHub",
-    href: "#"
-  },
-  {
-    label: "Blog",
-    href: "#"
-  },
-  {
-    label: "Contact",
-    href: "mailto:hello@example.com"
+    label: "Email",
+    href: "mailto:superschen1@gmail.com"
   }
 ] as const;
 
